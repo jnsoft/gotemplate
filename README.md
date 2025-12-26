@@ -2,9 +2,9 @@
 ```
 git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
+
 go mod init github.com/jnsoft/<my-project>
 
-go get -u github.com/go-chi/chi/v5
 go get -u github.com/google/uuid
 go get -u github.com/jnsoft/jngo
 
@@ -14,20 +14,19 @@ dlv debug src/main.go
 
 # Build and Test
 ```
-go test -v ./...
+go test ./... -v
 go test -v -race ./src/pqueue/ # identify race conditions
 
-go run src/main.go
+go run  ./src/main.go
 
-go build -o .bin/app ./src/main.go
-./.bin/app -key api-key -m
+#linux
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o .bin/app ./src/main.go
 
-go run ./src/main.go -key api-key -db test.db -v
-go run ./src/main.go -key api-key -m
+#win
+GOOS=windows GOARCH=amd64 go build -o .bin/app-windows-amd64.exe ./src/main.go
 
-
-go build -o ./.bin/client ./workerclient/workerclient.go
-./.bin/client http://localhost:8080 1 api-key 1 1
+#run
+.bin/app
 ```
 
 ## Code Review
