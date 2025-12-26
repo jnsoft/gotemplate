@@ -1,36 +1,23 @@
-# Use the official Go image as a parent image
-FROM golang:latest
+FROM docker.io/golang:alpine
 
-# Install necessary tools
-RUN apt-get update && apt-get install -y \
+RUN apk add --no-cache \
     git \
     curl \
     wget \
     unzip \
-    && rm -rf /var/lib/apt/lists/*
+    bash \
+    build-base
 
-# Install Delve for debugging
-RUN go install github.com/go-delve/delve/cmd/dlv@latest
+RUN addgroup -g 1000 vscode && adduser -D -G vscode -u 1000 -h /home/vscode -s /bin/bash vscode
 
-# Install Go tools
-RUN go install -v golang.org/x/tools/cmd/goimports@latest
+# Go tools
+RUN go install github.com/go-delve/delve/cmd/dlv@latest \
+ && go install golang.org/x/tools/cmd/goimports@latest \
+ && go install golang.org/x/tools/gopls@latest
 
-# Install gopls
-RUN go install -v golang.org/x/tools/gopls@latest
+# Ensure writable GOPATH
+RUN mkdir -p /go && chown -R vscode:vscode /go /home/vscode
 
-# Create a non-root user to use the container
-RUN useradd -ms /bin/bash vscode
-
-#RUN mkdir -p /go && chown -R vscode:vscode /go
-#RUN mkdir -p /workspace && chown -R vscode:vscode /workspace
-
-
-# Set the user to vscode
-USER root 
-#USER vscode
-
-# Set the working directory
+USER vscode
 WORKDIR /workspace
-
-# Expose the port for Delve debugger
 EXPOSE 2345
