@@ -25,5 +25,5 @@ jobs:
     - name: Upload binary artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ghmetrics-linux-amd64
+        name: app-linux-amd64
         path: .bin/app
