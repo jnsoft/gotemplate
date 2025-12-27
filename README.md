@@ -58,7 +58,7 @@ m.mu.Lock() allows only one writer
 ## Code Review
 ### Input
 * new input?
-* changes in handeling the input
+* changes in handling the input
 * changes in storing
 * changes in how the input is used
 
