@@ -45,7 +45,7 @@ for key, value := range hashmap {
 }
 toSlice := make([]int, 0, len(s.data))
     for key := range s.data {
-        result = append(result, key)
+        toSlice = append(toSlice, key)
 }
 delete(hashmap, "A")
 ```
