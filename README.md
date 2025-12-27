@@ -29,6 +29,32 @@ GOOS=windows GOARCH=amd64 go build -o .bin/app-windows-amd64.exe ./src/main.go
 .bin/app
 ```
 
+```
+type Point struct {
+    X, Y float64
+}
+```
+
+```
+hashmap := make(map[string]int)
+hashmap["A"] = 25
+value, exists := hashmap["A"]
+isEmpty := len(hashmap) == 0
+for key, value := range hashmap {
+        fmt.Printf("%s -> %d\n", key, value)
+}
+toSlice := make([]int, 0, len(s.data))
+    for key := range s.data {
+        result = append(result, key)
+}
+delete(hashmap, "A")
+```
+
+RWMutex (instead of sync.Mutex) allows multiple readers to access the resource concurrently, while ensuring that only one writer can access it at any time. Use in read-heavy scenarios.
+m.mu.RLock() allows multiple readers
+m.mu.Lock() allows only one writer
+
+
 ## Code Review
 ### Input
 * new input?
@@ -57,3 +83,4 @@ Helps produce readable, predictable and testable code
 * Immutability (once a value is declared, it is unchangeable)
 * Functions as first class entities (functions can be passed as arguments, returned from other functions, stored in data structures and assigned to variables)
 * Higher order funtions (functions that takes functions as values or returns functions, like map, filter and reduce)
+
