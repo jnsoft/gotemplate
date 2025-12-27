@@ -68,7 +68,7 @@ m.mu.Lock() allows only one writer
 * Auditing - have we made a note of what happened?
 
 ### New dependencis
-* Truested?
+* Trusted?
 * Popular?
 * Well maintained?
 * Do we need it?
