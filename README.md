@@ -67,7 +67,7 @@ m.mu.Lock() allows only one writer
 * Authorization - is the actor allowed to do this?
 * Auditing - have we made a note of what happened?
 
-### New dependencis
+### New dependencies
 * Trusted?
 * Popular?
 * Well maintained?
