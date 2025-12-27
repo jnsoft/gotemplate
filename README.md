@@ -82,5 +82,5 @@ Helps produce readable, predictable and testable code
 * Referential transparency (any bound variable or subexpression can be replaced by it's value without changing the meaning of the program, regardless of the order in which they are evaluated)
 * Immutability (once a value is declared, it is unchangeable)
 * Functions as first class entities (functions can be passed as arguments, returned from other functions, stored in data structures and assigned to variables)
-* Higher order funtions (functions that takes functions as values or returns functions, like map, filter and reduce)
+* Higher order functions (functions that takes functions as values or returns functions, like map, filter and reduce)
 
