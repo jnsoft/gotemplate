@@ -65,7 +65,7 @@ m.mu.Lock() allows only one writer
 ### AAA
 * Authentication - is the actor who they say they are?
 * Authorization - is the actor allowed to do this?
-* Auditing - have we made a note of what happend?
+* Auditing - have we made a note of what happened?
 
 ### New dependencis
 * Truested?
